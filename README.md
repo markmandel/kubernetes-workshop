@@ -5,7 +5,7 @@ In this workshop you will learn how to:
 * Provision Kubernetes using [Google Container Engine](https://cloud.google.com/container-engine)
 * Deploy and manage Docker containers using kubectl
 
-Kubernetes Version: 1.2.2
+Kubernetes Version: 1.3.0
 
 ## Workshop setup
 
@@ -17,6 +17,17 @@ Kubernetes Version: 1.2.2
 1. Click the following button to activate [Cloud Shell](https://cloud.google.com/shell/docs),
 which is your "command line in the cloud" and will be used complete the labs. ![Cloud Shell Icon](https://cloud.google.com/shell/docs/images/shell_icon.png)
 
+#### Check Kubectl version
+
+In your **Cloud Shell** terminal, issue the following commands:
+
+```
+gcloud components update
+kubectl version
+```
+
+If the `Client Version`'s `GitVersion` is not listed as `1.3.0` follow the [Update Kubectl to latest version](labs/upgrade-kubectl.md) guide.
+
 #### Provision Kubernetes using Google Container Engine (GKE)
 
 Kubernetes can be configured with many options and add-ons, but can be time consuming to bootstrap from the ground up. In this section you will bootstrap Kubernetes using [Google Container Engine](https://cloud.google.com/container-engine) (GKE).
@@ -24,15 +35,16 @@ Kubernetes can be configured with many options and add-ons, but can be time cons
 In your **Cloud Shell** terminal, issue the following commands (feel free to change the zone or cluster name):
 
 ```
-gcloud config set compute/zone europe-west1-b
-gcloud container clusters create myk8scluster --num-nodes 7
+gcloud config set compute/zone us-central1-c
+gcloud container clusters create myk8scluster --machine-type n1-standard-1 --num-nodes 3
 ```
+
 #### Clone repository
 
 In your Cloud Shell environment clone the following repository.
 
 ```
-git clone https://github.com/bretmcg/kubernetes-workshop.git
+git clone https://github.com/markmandel/kubernetes-workshop.git
 cd kubernetes-workshop/kubernetes
 ```
 

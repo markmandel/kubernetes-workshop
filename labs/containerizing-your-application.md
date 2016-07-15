@@ -7,10 +7,11 @@ In this lab you will build your application, run it locally, and then package it
 The first hurdle to is the application itself.  How do you write it?  How do you deploy it?
 
 First set up the code and the Go build environment. For this lab we'll be using an example app from GitHub: [kelseyhightower/app](https://github.com/kelseyhightower/app).
+
 ```bash
-export GOPATH=~/go
-mkdir -p $GOPATH/src/github.com/kelseyhightower
-cd ~/go/src/github.com/kelseyhightower
+echo $GOPATH #see where the $GOPATH is already set
+mkdir -p ~/gopath/src/github.com/kelseyhightower
+cd ~/gopath/src/github.com/kelseyhightower
 git clone https://github.com/kelseyhightower/app
 ```
 
@@ -43,17 +44,4 @@ docker rm <container-id>
 docker rmi kelseyhightower/monolith:1.0.0
 ```
 
-## Title here
-
-The next hurdle is the infrastructure needed to run manage in production. We'll use Kubernetes (and GKE) to handle that for us.
-
-```bash
-cd ~/kubernetes-workshop/kubernetes
-kubectl run monolith --image kelseyhightower/monolith:1.0.0
-kubectl expose deployment monolith --port 80 --type LoadBalancer
-kubectl scale deployment monolith --replicas 3
-kubectl get service monolith
-curl http://<External-IP>
-kubectl delete services monolith
-kubectl delete deployment monolith
-```
+    
