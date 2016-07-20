@@ -71,7 +71,7 @@ Kubernetes is all about applications and in this section you will utilize the Ku
 
 ## Links
 
-  * [Kubernetes](http://googlecloudplatform.github.io/kubernetes)
+  * [Kubernetes](http://kubernetes.io/)
   * [gcloud Tool Guide](https://cloud.google.com/sdk/gcloud)
   * [Docker](https://docs.docker.com)
   * [etcd](https://coreos.com/docs/distributed-configuration/getting-started-with-etcd)
